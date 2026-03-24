@@ -50,7 +50,7 @@ jobs:
 
       - name: 整理编译插件
         run: |
-          # 创建输出目录（强制）
+          # 创建输出目录
           mkdir output -Force
           # 优先复制标准输出路径
           if (Test-Path "Fd\x86\Home\Fd.dll") {
