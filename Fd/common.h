@@ -7,8 +7,8 @@
 #include <unordered_set>
 #include <unordered_map>
 
-#define GameIP							L"192.168.1.3"
-//#define GameIP							L"192.168.66.200"
+#define GameIP							L"192.168.200.131"
+//#define GameIP						L"192.168.66.200"
 
 #define MAX_LV	70
 #define forceinline static __forceinline
@@ -20,8 +20,8 @@
 #define WeaponIllusionEN
 
 #ifdef DEBUG_INFO
-#define DPRINTF(...) printf(__VA_ARGS__)  //ºê´òÓ¡º¯Êý¶¨Òå
-#define WDPRINTF(...) wprintf(__VA_ARGS__)  //ºê´òÓ¡º¯Êý¶¨Òå
+#define DPRINTF(...) printf(__VA_ARGS__)  //ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define WDPRINTF(...) wprintf(__VA_ARGS__)  //ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #else
 #define DPRINTF(...)
 #define WDPRINTF(...) 
