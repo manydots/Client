@@ -14,6 +14,23 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: GBK → UTF-8 编码转换（保留所有中文函数名）
+        run: |
+          $files = Get-ChildItem -Path "Fd\" -Include *.cpp,*.h,*.c -Recurse
+          foreach ($file in $files) {
+            # 以 GBK 正确读取中文代码（函数名/变量名完全保留）
+            $content = Get-Content -Path $file.FullName -Encoding OEM -Raw
+            
+            # 仅修复换行符，不修改任何代码内容
+            $content = $content -replace "`r`n", "`n" -replace "`n", "`r`n"
+            
+            # 强制保存为 无BOM UTF-8（VS2022 完美支持中文函数名）
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            $bytes = $utf8NoBom.GetBytes($content)
+            [System.IO.File]::WriteAllBytes($file.FullName, $bytes)
+          }
+          echo "编码转换完成"
+
       - name: 生成Client发布版本号
         id: version
         shell: bash
@@ -45,16 +62,17 @@ jobs:
             /p:LanguageStandard=stdcpp17 `
             /p:Charset=Unicode `
             /p:CharacterSet=Unicode `
-            /p:AdditionalOptions="/utf-8 /source-charset:utf-8 /execution-charset:utf-8"
+            /p:AdditionalOptions="/utf-8 /source-charset:utf-8 /execution-charset:utf-8 /Zc:char8_t-"
+        shell: pwsh
 
       - name: 整理编译插件
         run: |
           mkdir output
-          if (Test-Path Fd\x86\Home\*.dll") {
-            xcopy "Fd\x86\Home\*.dll" "output\" /y /s /q
+          if (Test-Path Fd\x86\Home\Fd.dll") {
+            xcopy "Fd\x86\Home\Fd.dll" "output\" /y /s /q
           }
-          if (Test-Path "Fd\*.dll") {
-            xcopy "Fd\*.dll" "output\" /y /s /q
+          if (Test-Path "Fd\Fd.dll") {
+            xcopy "Fd\Fd.dll" "output\" /y /s /q
           }
 
       - name: 上传到GitHub Releases
