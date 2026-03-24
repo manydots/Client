@@ -14,23 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: GBK → UTF-8 编码转换（保留所有中文函数名）
-        run: |
-          $files = Get-ChildItem -Path "Fd\" -Include *.cpp,*.h,*.c -Recurse
-          foreach ($file in $files) {
-            # 以 GBK 正确读取中文代码（函数名/变量名完全保留）
-            $content = Get-Content -Path $file.FullName -Encoding OEM -Raw
-            
-            # 仅修复换行符，不修改任何代码内容
-            $content = $content -replace "`r`n", "`n" -replace "`n", "`r`n"
-            
-            # 强制保存为 无BOM UTF-8（VS2022 完美支持中文函数名）
-            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            $bytes = $utf8NoBom.GetBytes($content)
-            [System.IO.File]::WriteAllBytes($file.FullName, $bytes)
-          }
-          echo "编码转换完成"
-
       - name: 生成Client发布版本号
         id: version
         shell: bash

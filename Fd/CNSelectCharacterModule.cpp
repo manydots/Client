@@ -20,7 +20,7 @@ int __fastcall hookCNSelectCharacterModule__Proc_1105190(int* thisP) {
 #define PosX    20
 #define PosY    -56
 #define PosY2   -78
-int __fastcall 画选中框(int* thisP, int edx, int x, int y, char a4) {
+int __fastcall DrawSelectFrame(int* thisP, int edx, int x, int y, char a4) {
 	if (y == 0x127) {
 		y += PosY2;
 	}
@@ -30,12 +30,12 @@ int __fastcall 画选中框(int* thisP, int edx, int x, int y, char a4) {
 	return setUiComponentPos_11BEAD0(thisP, x, y + 20, a4);
 }
 
-int __fastcall  画改名框(int* thisP, int edx, int x, int y, char a4) {
+int __fastcall  DrawRenameFrame(int* thisP, int edx, int x, int y, char a4) {
 	y -= 0x26;
 	return setUiComponentPos_11BEAD0(thisP, x + 2, y + 20, a4);
 }
 
-int __fastcall 画改名按钮(int* thisP, int edx, int x, int y, char a4) {
+int __fastcall DrawRenameButton(int* thisP, int edx, int x, int y, char a4) {
 	//if (y == 0x127) {
 	//	y += PosY2;
 	//}
@@ -233,13 +233,13 @@ forceinline void setCharacAlign4() {
 	b++->setValue(H_CALL, 0x01102CFB, (int)hookSub_10FD760);
 	b++->setValue(H_CALL, 0x01102E22, (int)hookSub_10FD760);
 	b++->setValue(H_CALL, 0x01102FCF, (int)hookGameAct__play_10A4560);
-	b++->setValue(H_CALL, 0x0110217C, (int)画选中框);
+	b++->setValue(H_CALL, 0x0110217C, (int)DrawSelectFrame);
 	b++->setValue(H_BYTE, 0x01102CD8, 65);
 	b++->setValue(H_BYTE, 0x01102CD3, 127);
 	//b++->setValue(H_BYTE, 0x01102CD8, 65);
 	//b++->setValue(H_BYTE, 0x01102CD3, 127);
-	b++->setValue(H_CALL, 0x01102D26, (int)画改名按钮);
-	b++->setValue(H_CALL, 0x01102D6B, (int)画改名框);
+	b++->setValue(H_CALL, 0x01102D26, (int)DrawRenameButton);
+	b++->setValue(H_CALL, 0x01102D6B, (int)DrawRenameFrame);
 	b++->setValue(H_BYTE, 0x01102FB1, 65);
 	b++->setValue(H_BYTE, 0x01102FAC, 127);
 	b++->setValue(H_BYTE, 0x01102390, 65);
@@ -313,7 +313,7 @@ forceinline void setCharacAlign4() {
 	////*(BYTE*)0x01103095 = 3;
 	//*(BYTE*)0x011030B7 = 7;
 	//writeCallCode((LPVOID*)0x01102FCF, (LPVOID)hookGameAct__play_10A4560);
-	//writeCallCode((LPVOID*)0x0110217C, (LPVOID)画选中框);
+	//writeCallCode((LPVOID*)0x0110217C, (LPVOID)DrawSelectFrame);
 	//*(BYTE*)0x01102FB1 = 65;//栏位起始坐标x
 	//*(BYTE*)0x01102FAC = 127;//栏位间隔
 	//*(BYTE*)0x01102390 = 65;//脚底魔法阵起始坐标x
@@ -418,7 +418,7 @@ forceinline void setCharacAlign4() {
 #define PosX    20
 #define PosY    -56
 #define PosY2   -78
-int __fastcall 画选中框(int* thisP, int edx, int x, int y, char a4) {
+int __fastcall DrawSelectFrame(int* thisP, int edx, int x, int y, char a4) {
 	if (y == 0x127) {
 		y += PosY2;
 	}
@@ -492,7 +492,7 @@ forceinline void setCharacAlign4Pos(GumInterceptor* v) {
 	//gum_interceptor_replace_fast(v, (gpointer)0x10FD760, (gpointer)hookSub_10FD760, (gpointer*)&sub_10FD760);
 	writeCallCode((LPVOID*)0x010FD84F, (LPVOID)getRunPosYLinearValue);
 
-	writeCallCode((LPVOID*)0x0110217C, (LPVOID)画选中框);
+	writeCallCode((LPVOID*)0x0110217C, (LPVOID)DrawSelectFrame);
 
 	*(BYTE*)0x01102FB1 = 65;//栏位起始坐标x
 	*(BYTE*)0x01102FAC = 127;//栏位间隔

@@ -45,7 +45,7 @@ int __fastcall getSummonAni(int monsterId, int, int size) {
     }
 }
 
-void Naked 新增召唤坐骑动画(void) {
+void Naked PlayMountSummonAnimation(void) {
     //00B37D48
     __asm {
         mov  ecx, dword ptr[esi + 0x0DCD]
@@ -570,7 +570,7 @@ void ridingInit(void) {
     }
     memcpy(myCNRidableObjectTypeInfo, (void*)0x0170F3C8, typeInfoLen);
     myCNRidableObjectTypeInfo[(0x0170F5BC - 0x0170F3C8)/4] = (int)myCNRidableObject__procAppend;
-    writeJmpCode((void*)0x00B37D48, 新增召唤坐骑动画);
+    writeJmpCode((void*)0x00B37D48, PlayMountSummonAnimation);
     
     //myCNRidableObject__procAppend_B55C10 = (thisCall2)tools_relocation(0xB55C10, 0x00B56D78)
     myCNRidableObject__procAppend_B55C10 = (thisCall2)0xB55C10;

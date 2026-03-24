@@ -71,11 +71,11 @@ void init70_UiMgr__initCb(int* thisP) {
 	//*(BYTE*)0x0041020D = 0xa1; *(DWORD*)0x0041020E = (int)&drawCenterImg;
 
 	initOld70Hub_delay(thisP, 605, 265, 430);
-	//extern void 修复单间时装2(void);
-	//*(DWORD*)0x0042133C = (int)修复单间时装;
-	//*(DWORD*)0x0042133C = (int)修复单间时装2;
-	extern void 修复时装tag栏底线(void);
-	*(DWORD*)0x0040B9CC = (int)修复时装tag栏底线;
+	//extern void FixSingleFashion2(void);
+	//*(DWORD*)0x0042133C = (int)FixSingleFashion;
+	//*(DWORD*)0x0042133C = (int)FixSingleFashion2;
+	extern void FixFashionTagBottomLine(void);
+	*(DWORD*)0x0040B9CC = (int)FixFashionTagBottomLine;
 	goldSkillInitDelay(thisP);
 	ridingInitDelay(thisP);
 }
@@ -1277,7 +1277,7 @@ forceinline void dungeonResult(GumInterceptor* v) {
 #define RewardPosYU  40
 #define RewardPosYD  70
 thisCallType1 myDrawImgByXY2_11B41E0;
-int __fastcall 画宝物生成动画(int* thisP, int edx, int x, int y, int a4, float a5, float a6, float a7, int a8, float a9, float a10) {
+int __fastcall DrawTreasureAnimation(int* thisP, int edx, int x, int y, int a4, float a5, float a6, float a7, int a8, float a9, float a10) {
 	//setBalanceStage 3 by 0x01037e2d start
 	//setBalanceStage 4 by 0x01037f1e end
 	if (0x028DD3E2 == (int)_ReturnAddress()) {
@@ -1290,7 +1290,7 @@ int __fastcall 画宝物生成动画(int* thisP, int edx, int x, int y, int a4, float a
 }
 
 thisCall3Args2 mySetUiComponentPos;
-int __fastcall 修复翻牌位置(int* thisP, int edx, int x, int y, char a4) {
+int __fastcall FixCardFlipPosition(int* thisP, int edx, int x, int y, char a4) {
 	int retAddr = (int)_ReturnAddress();
 	if (0x028A907B == retAddr) {
 		//x -= 80;
@@ -1306,8 +1306,8 @@ int __fastcall 修复翻牌位置(int* thisP, int edx, int x, int y, char a4) {
 
 void init70_setDungeonClearStateCb(int* thisP, int a2) {
 	static GumInterceptor* v = gum_interceptor_obtain();
-	if (a2 == 3) gum_interceptor_replace_fast(v, (gpointer)0x11B41E0, (gpointer)画宝物生成动画, (gpointer*)&myDrawImgByXY2_11B41E0);
-	else if (a2 == 6) gum_interceptor_replace_fast(v, (gpointer)0x11BEAD0, (gpointer)修复翻牌位置, (gpointer*)&mySetUiComponentPos);
+	if (a2 == 3) gum_interceptor_replace_fast(v, (gpointer)0x11B41E0, (gpointer)DrawTreasureAnimation, (gpointer*)&myDrawImgByXY2_11B41E0);
+	else if (a2 == 6) gum_interceptor_replace_fast(v, (gpointer)0x11BEAD0, (gpointer)FixCardFlipPosition, (gpointer*)&mySetUiComponentPos);
 	else {
 		gum_interceptor_revert(v, (gpointer)0x11B41E0);
 		gum_interceptor_revert(v, (gpointer)0x11BEAD0);
@@ -3472,7 +3472,7 @@ void __fastcall hookCashShop__init_429AA0(int* thisP) {
 
 }
 
-Naked void 修复单间时装(void) {
+Naked void FixSingleFashion(void) {
 	__asm {
 		cmp ebx, 1
 		jz goFix
@@ -3493,7 +3493,7 @@ Naked void 修复单间时装(void) {
 	}
 }
 
-Naked void 修复单间时装2(void) {
+Naked void FixSingleFashion2(void) {
 	__asm {
 		mov ecx, dword ptr ds : [esi + 0x3A0]
 		mov eax, 0x11C6130
@@ -3509,7 +3509,7 @@ Naked void 修复单间时装2(void) {
 	}
 }
 
-Naked void 花枝修复单件时装(void) {
+Naked void FixSingleFashion_HZ(void) {
 	__asm {
 		mov  ecx, dword ptr[esi + 0x3a0]
 		mov  eax, 0x11c6130
@@ -3538,7 +3538,7 @@ Naked void 花枝修复单件时装(void) {
 	}
 }
 
-Naked void 修复时装tag栏底线(void) {
+Naked void FixFashionTagBottomLine(void) {
 	__asm {
 		mov ecx, [esi + 0x1C]
 		push 5
@@ -3787,7 +3787,7 @@ int __fastcall hookCNModule__changeMap_7E8510(int* thisP, int, int a2, int a3, i
 	return ret;
 }
 
-void Naked 修复进图camera位置(void) {
+void Naked FixDungeonCameraPosition(void) {
 	//007E8D6E
 	__asm {
 		sar  edx, 2
@@ -4095,8 +4095,8 @@ void init70(void) {
 
 	std::vector<RelocatHookInfo>* hook = new std::vector<RelocatHookInfo>(1);
 	auto b = hook->begin();
-	b++->setValue(H_JUMP, 0x007E8D6E, (int)修复进图camera位置);
-	//writeJmpCode((LPVOID*)0x007E8D6E, (PVOID)修复进图camera位置);
+	b++->setValue(H_JUMP, 0x007E8D6E, (int)FixDungeonCameraPosition);
+	//writeJmpCode((LPVOID*)0x007E8D6E, (PVOID)FixDungeonCameraPosition);
 	CNModule__changeMap_7E8510 = (thisCall3Args2)tools_relocation_hook(0x7E8510, 0x007E9800, hook);
 	delete hook;
 	gum_interceptor_replace_fast(v, (gpointer)0x7E8510, (gpointer)hookCNModule__changeMap_7E8510, NULL);

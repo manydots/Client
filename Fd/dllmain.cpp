@@ -386,7 +386,7 @@ int __fastcall hookshowStudySkillWin(int* thisP, int edx, int a2, int a3, int a4
 }
 
 DWORD isOpenning = 0;
-Naked void 修复输入法1(void) {
+Naked void FixInputMethod1(void) {
     __asm {
         mov edx, isOpenning
         test edx, edx
@@ -401,7 +401,7 @@ Naked void 修复输入法1(void) {
         jmp edx
     }
 }
-Naked void 修复输入法2(void) {
+Naked void FixInputMethod2(void) {
     __asm {
         mov isOpenning, 0
         mov byte ptr[esi + 0x2b9], 0
@@ -410,7 +410,7 @@ Naked void 修复输入法2(void) {
     }
 }
 
-Naked void 黑钻0() {
+Naked void BlackDungeonIcon0() {
     __asm {
         mov  ebx, 0xff5ad6f7
         mov  dword ptr[edi + 8], 1
@@ -419,7 +419,7 @@ Naked void 黑钻0() {
         ret
     }
 }
-Naked void 黑钻1() {
+Naked void BlackDungeonIcon1() {
     __asm {
         cmp  dword ptr[ebx + 8], 1
         jne  goNext
@@ -432,7 +432,7 @@ Naked void 黑钻1() {
         ret
     }
 }
-Naked void 黑钻2() {
+Naked void BlackDungeonIcon2() {
     __asm {
         cmp  dword ptr[ebx + 8], 1
         jne  goExit
@@ -457,15 +457,15 @@ void hookThread() {
 
 
     //黑钻黄名
-    //writeJmpCode((void*)0x81060E, 黑钻0);
-    //writeJmpCode((void*)0x810C33, 黑钻1);
-    //writeJmpCode((void*)0x810E45, 黑钻2);
+    //writeJmpCode((void*)0x81060E, BlackDungeonIcon0);
+    //writeJmpCode((void*)0x810C33, BlackDungeonIcon1);
+    //writeJmpCode((void*)0x810E45, BlackDungeonIcon2);
 
     //修复输入法
     *(BYTE*)0x011D014B = 0xEB;
     *(WORD*)0x11E54C7 = 0x9090;
-    writeJmpCode((void*)0x011E54CE, 修复输入法1);
-    writeJmpCode((void*)0x011D01F7, 修复输入法2);
+    writeJmpCode((void*)0x011E54CE, FixInputMethod1);
+    writeJmpCode((void*)0x011D01F7, FixInputMethod2);
 
     //*(DWORD*)0x00403421 = 0x3A8; //简体CodePage
 
@@ -874,7 +874,7 @@ int __fastcall hookGetDiffImgV2_1078DF0(int* thisP, int, int a2, int a3) {
     return getImageByPos_11B4BD0((int*)thisP[0xDB], pos);
 }
 
-void __fastcall 画难度光标(int* thisP, int diff) {
+void __fastcall DrawDifficultyCursor(int* thisP, int diff) {
     int pos[] = { 18, 14, 11 };//光标xPos 3/4/5
     if (thisP[0xE3] != 2) {
         thisP[0xE3] = 1;
@@ -889,14 +889,14 @@ void __fastcall 画难度光标(int* thisP, int diff) {
     drawImgByXY_11B3950(*(int**)0x1B5582C, x, y, img);
 }
 
-void Naked 画难度光标hook(void) {
+void Naked DrawDifficultyCursorHook(void) {
     //010794CB
     __asm {
         push edi
         push esi
         mov ecx, esi
         mov edx, edi
-        call 画难度光标  
+        call DrawDifficultyCursor
         pop esi
         pop edi
         mov eax, 0x1079518
@@ -998,7 +998,7 @@ void heroDiffV2() {
     *(DWORD*)0x00FC393E = 147;//获取权限的图标地狱级改成王者级
     *(DWORD*)0x00FC3921 = 146;//获取权限的图标地狱级改成王者级
 
-    writeJmpCode((LPVOID*)0x010794CB, (PVOID)画难度光标hook);
+    writeJmpCode((LPVOID*)0x010794CB, (PVOID)DrawDifficultyCursorHook);
     GumInterceptor* v = gum_interceptor_obtain();
     gum_interceptor_replace_fast(v, (gpointer)0x438940, (gpointer)hookGetDungeonMaxDiff_438940, (gpointer*)&getDungeonMaxDiff_438940);
     gum_interceptor_replace_fast(v, (gpointer)0x12019D0, (gpointer)hookSetDungeonDiffType_12019D0, (gpointer*)&setDungeonDiffType_12019D0);
