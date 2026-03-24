@@ -1,0 +1,5 @@
+#include "pch.h"
+#include "common.h"
+#include "currentQuestListSubWin.h"
+#include "tools.h"
+#include "frida-gum.h"

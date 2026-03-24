@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Win">
+      <UniqueIdentifier>{d5d5cd98-13a5-4411-bfc4-8afccbf71abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Skill">
+      <UniqueIdentifier>{8d3966c5-1361-4d41-8a73-61b94db2dc63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\goldSkill">
+      <UniqueIdentifier>{84079420-13f3-4a4d-ba9d-83bb8f55237b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\riding">
+      <UniqueIdentifier>{d66e827f-6a07-46b3-ba78-9061c9c21306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\npcFavor">
+      <UniqueIdentifier>{92458649-d5f4-449b-98ca-ade1b2da5b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\module">
+      <UniqueIdentifier>{5d0a2bcf-f192-45b7-8722-9d3313d504e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\equimentJewel">
+      <UniqueIdentifier>{2b65ff3c-b26c-46d7-a748-876f8d480948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\weaponIllusion">
+      <UniqueIdentifier>{61138cca-6ae2-4310-b838-12a47b33c546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\externSkillSlot">
+      <UniqueIdentifier>{dada9b09-f0d8-4b03-9366-7cd1d8bd12ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\byQuQu">
+      <UniqueIdentifier>{213850e4-c55e-4486-bd5b-615f91a02921}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\pvp">
+      <UniqueIdentifier>{14b5a720-7040-4857-ac08-684d1e4dcfcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\skill">
+      <UniqueIdentifier>{e4202548-5d01-4fd2-bcaa-53fbe623ee35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\win">
+      <UniqueIdentifier>{1e12b38f-65e8-4852-9387-cad1515f7a33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\action">
+      <UniqueIdentifier>{ec30ef6f-d7a1-41d3-9527-075501b36c6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\booster">
+      <UniqueIdentifier>{2ffb5f20-b944-498a-8a38-c7d78cd8a5a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\soundOptimize">
+      <UniqueIdentifier>{4aad8899-182a-4e35-bbb7-594b137ec3a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\event">
+      <UniqueIdentifier>{9ad308e6-11d1-41c6-afa4-0390e0b413e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hellPartyInfoWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="questDetailWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="epicQuestListSubWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="currentQuestListWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="70.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="oldSkillWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="oldQuestWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="cancel.h">
+      <Filter>头文件\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="highLevelEvil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itemInfoWin.h">
+      <Filter>头文件\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="goldSkill.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="riding.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="npcFavor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="oldCharacInfoWin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="itemInventoryWin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CNSelectCharacterModule.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="equimentJewel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="weaponIllusion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="externSkillSlot.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="soundOptimize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hellPartyInfoWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="questDetailWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="epicQuestListSubWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="currentQuestListWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="70.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="oldSkillWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="oldQuestWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="cancel.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="highLevelEvil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="itemInfoWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="goldSkill.cpp">
+      <Filter>源文件\goldSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="riding.cpp">
+      <Filter>源文件\riding</Filter>
+    </ClCompile>
+    <ClCompile Include="npcFavor.cpp">
+      <Filter>源文件\npcFavor</Filter>
+    </ClCompile>
+    <ClCompile Include="oldCharacInfoWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="itemInventoryWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="CNSelectCharacterModule.cpp">
+      <Filter>源文件\module</Filter>
+    </ClCompile>
+    <ClCompile Include="equimentJewel.cpp">
+      <Filter>源文件\equimentJewel</Filter>
+    </ClCompile>
+    <ClCompile Include="weaponIllusion.cpp">
+      <Filter>源文件\weaponIllusion</Filter>
+    </ClCompile>
+    <ClCompile Include="soundOptimize.cpp">
+      <Filter>源文件\soundOptimize</Filter>
+    </ClCompile>
+    <ClCompile Include="externSkillSlot.cpp">
+      <Filter>源文件\externSkillSlot</Filter>
+    </ClCompile>
+    <ClCompile Include="priest.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="hellPartyReleaseWindow.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="tp.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="ququ.cpp">
+      <Filter>源文件\byQuQu</Filter>
+    </ClCompile>
+    <ClCompile Include="skillCommon.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="NpcShopWin.cpp">
+      <Filter>源文件\win</Filter>
+    </ClCompile>
+    <ClCompile Include="privateStore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pvp.cpp">
+      <Filter>源文件\pvp</Filter>
+    </ClCompile>
+    <ClCompile Include="swordman.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="gunner.cpp">
+      <Filter>源文件\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="action.cpp">
+      <Filter>源文件\action</Filter>
+    </ClCompile>
+    <ClCompile Include="booster.cpp">
+      <Filter>源文件\booster</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cpp">
+      <Filter>源文件\event</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
