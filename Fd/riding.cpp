@@ -4,7 +4,7 @@
 #include "frida-gum.h"
 #include "70.h"
 
-#define RIDING_EN
+//#define RIDING_EN
 #ifdef RIDING_EN
 
 thisCall2 CNRDUdpModule__getModuleStage_76F3A0 = (thisCall2)0x76F3A0;
@@ -45,7 +45,7 @@ int __fastcall getSummonAni(int monsterId, int, int size) {
     }
 }
 
-void Naked ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¶¯ï¿½ï¿½(void) {
+void Naked ÐÂÔöÕÙ»½×øÆï¶¯»­(void) {
     //00B37D48
     __asm {
         mov  ecx, dword ptr[esi + 0x0DCD]
@@ -231,7 +231,7 @@ void startRiding(int id) {
     //isRidingToObject
     thisCall2 isRidingToObject = (thisCall2)Vtable(charac, 0x8B0);
     if (isRidingToObject(charac) == 2) {
-        sengGameNoticeMsg_95D130((*(int***)0x1A6F750)[0x10], (int)L"ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", 0xFF9BC8E6, 0x10, 0, 0, 0);
+        sengGameNoticeMsg_95D130((*(int***)0x1A6F750)[0x10], (int)L"¸Ã×´Ì¬ÏÂÎÞ·¨±äÉí£¡", 0xFF9BC8E6, 0x10, 0, 0, 0);
         return;
     }
     //if(isRidingToObject)
@@ -243,9 +243,9 @@ void startRiding(int id) {
     int characLv = 1;
     decrypt_11A0DE0(charac + 0x8C7, (int)(charac + 0x8C9), (int)&characLv);
     sq_StartWrite_BB16F0(charac);
-    sq_WriteBool_67E850(charac, 1);//ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½
+    sq_WriteBool_67E850(charac, 1);//ÕÙ»½¶¯»­
     sq_WriteDword_67E870(charac, ridableSpinner.ridableId[id]);//id
-    sq_WriteWord_BB2B50(charac, 0);//ï¿½ï¿½Óª 0/ï¿½Ñ·ï¿½ 100/ï¿½ï¿½ï¿½ï¿½ 200/ï¿½ï¿½ï¿½ï¿½
+    sq_WriteWord_BB2B50(charac, 0);//ÕóÓª 0/ÓÑ·½ 100/ÖÐÁ¢ 200/¶ÔÁ¢
     sq_WriteBool_67E850(charac, characLv);//lv
     sq_sendCreatePassiveObjectPacket_B6A990(charac, 48024, 0, 0, 0, 0);
     CNTimer__Reset_11BA3F0(timer);
@@ -357,9 +357,9 @@ void __fastcall ridableBtn_DrawProc(int* thisP) {
     //        return;
     //    }
     //    sq_StartWrite_BB16F0(charac);
-    //    sq_WriteBool_67E850(charac, 1);//ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½
+    //    sq_WriteBool_67E850(charac, 1);//ÕÙ»½¶¯»­
     //    sq_WriteDword_67E870(charac, 61735);//id
-    //    sq_WriteWord_BB2B50(charac, 0);//ï¿½ï¿½Óª 0/ï¿½Ñ·ï¿½ 100/ï¿½ï¿½ï¿½ï¿½ 200/ï¿½ï¿½ï¿½ï¿½
+    //    sq_WriteWord_BB2B50(charac, 0);//ÕóÓª 0/ÓÑ·½ 100/ÖÐÁ¢ 200/¶ÔÁ¢
     //    sq_WriteBool_67E850(charac, 70);//lv
     //    sq_sendCreatePassiveObjectPacket_B6A990(charac, 48024, 0, 0, 0, 0);
     //    CNTimer__Reset_11BA3F0(timer);
@@ -446,7 +446,7 @@ void ridingInitDelay(int* thisP) {
     btnTypeInfo[13] = (int)ridableBtn_Proc;
 
     int x = 614, y = 356;
-    //ridableSpinnerï¿½È³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ridableBtnï¿½ï¿½
+    //ridableSpinnerÏÈ³õÊ¼»¯£¬ÏÔÊ¾ÓÅÏÈ¼¶±ÈridableBtnµÍ
     ridableSpinner.spinner = newUiComponent(((int***)thisP)[0x0F][2], x, y);
     typeInfoLen = 0x0185A6B0 - 0x0185A610;
     int* typeInfo = (int*)malloc(typeInfoLen);
@@ -527,7 +527,7 @@ bool __fastcall fixRidableQuestLabelDetailSubWinImp(int* thisP) {
     int x = BaseSubWin__GetPosX_E86310(thisP) + 4;
     int y = BaseSubWin__GetPosY_E86350(thisP) + 184;
     drawTextStart_12115B0(*(int**)0x1B5582C,  (int)(thisP + 0x19));
-    drawText_1211C30(*(int**)0x1B5582C, x, y, 0xFF93C5DD, (int)L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    drawText_1211C30(*(int**)0x1B5582C, x, y, 0xFF93C5DD, (int)L"»ñµÃÒÔÏÂ½±Àø¡£");
     drawTextEnd_12115D0(*(int**)0x1B5582C);
 
     int v = getImageByPos_11B4BD0((int *)thisP[0x0C], 60);
@@ -556,10 +556,10 @@ void Naked fixRidableQuestLabelDetailSubWin() {
 
 
 void ridingInit(void) {
-    //npc ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
+    //npc ¶Ô»°´°¿ÚÐÞ¸´
     writeJmpCode((void*)0x00FBB28D, fixRidableQuestLabelNpcDialog);
     writeJmpCode((void*)0x00ECDE4C, fixRidableQuestLabelDetailSubWin);
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â¼¼ï¿½Ü¿ï¿½
+    //±äÉí¶îÍâ¼¼ÄÜ¿ò
     *(DWORD*)0x004C92BE = 634 * 0.8f + 5;//x
     *(DWORD*)0x004C92B9 = 489 * 0.8f + 5;//y
     int typeInfoLen = 0x0170FC38 - 0x0170F3C8;
@@ -570,7 +570,7 @@ void ridingInit(void) {
     }
     memcpy(myCNRidableObjectTypeInfo, (void*)0x0170F3C8, typeInfoLen);
     myCNRidableObjectTypeInfo[(0x0170F5BC - 0x0170F3C8)/4] = (int)myCNRidableObject__procAppend;
-    writeJmpCode((void*)0x00B37D48, ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¶¯ï¿½ï¿½);
+    writeJmpCode((void*)0x00B37D48, ÐÂÔöÕÙ»½×øÆï¶¯»­);
     
     //myCNRidableObject__procAppend_B55C10 = (thisCall2)tools_relocation(0xB55C10, 0x00B56D78)
     myCNRidableObject__procAppend_B55C10 = (thisCall2)0xB55C10;
