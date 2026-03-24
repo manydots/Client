@@ -50,13 +50,17 @@ jobs:
 
       - name: 整理编译插件
         run: |
-          mkdir output
-          if (Test-Path Fd\x86\Home\Fd.dll") {
-            xcopy "Fd\x86\Home\Fd.dll" "output\" /y /s /q
+          # 创建输出目录（强制）
+          mkdir output -Force
+          # 优先复制标准输出路径
+          if (Test-Path "Fd\x86\Home\Fd.dll") {
+            xcopy "Fd\x86\Home\Fd.dll" "output" /y /s /q
           }
+          # 兼容根目录输出
           if (Test-Path "Fd\Fd.dll") {
-            xcopy "Fd\Fd.dll" "output\" /y /s /q
+            xcopy "Fd\Fd.dll" "output" /y /s /q
           }
+        shell: pwsh
 
       - name: 上传到GitHub Releases
         uses: softprops/action-gh-release@v2
