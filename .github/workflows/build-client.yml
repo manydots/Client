@@ -37,9 +37,9 @@ jobs:
           arch: x86
           vsversion: 2022
 
-      - name: 编译 Client/Fd/Fd.sln
+      - name: 编译 Fd/Fd.sln
         run: |
-          msbuild "Client/Fd/Fd.sln" `
+          msbuild "Fd/Fd.sln" `
             /p:Configuration=Home `
             /p:Platform=x86 `
             /p:LanguageStandard=stdcpp17 `
@@ -50,11 +50,11 @@ jobs:
       - name: 整理编译插件
         run: |
           mkdir output
-          if (Test-Path "Client\Fd\x86\Home\*.dll") {
-            xcopy "Client\Fd\x86\Home\*.dll" "output\" /y /s /q
+          if (Test-Path Fd\x86\Home\*.dll") {
+            xcopy "Fd\x86\Home\*.dll" "output\" /y /s /q
           }
-          if (Test-Path "Client\Fd\*.dll") {
-            xcopy "Client\Fd\*.dll" "output\" /y /s /q
+          if (Test-Path "Fd\*.dll") {
+            xcopy "Fd\*.dll" "output\" /y /s /q
           }
 
       - name: 上传到GitHub Releases
