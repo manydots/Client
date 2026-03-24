@@ -1,0 +1,69 @@
+name: Client客户端插件编译
+on:
+  workflow_dispatch:
+
+jobs:
+  build-client:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clone Client仓库
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: 生成Client发布版本号
+        id: version
+        shell: bash
+        run: |
+          new_tag="client-v1.0.0"
+          latest=$(gh release list --json tagName --jq '.[0].tagName' 2>/dev/null || true)
+          if [ -n "$latest" ] && [[ $latest =~ client-v([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+            major=${BASH_REMATCH[1]}
+            minor=${BASH_REMATCH[2]}
+            patch=${BASH_REMATCH[3]}
+            new_patch=$((patch + 1))
+            new_tag="client-v$major.$minor.$new_patch"
+          fi
+          echo "tag=$new_tag" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置VS环境
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
+          vsversion: 2022
+
+      - name: 编译 Client/Fd/Fd.sln
+        run: |
+          msbuild "Client/Fd/Fd.sln" `
+            /p:Configuration=Home `
+            /p:Platform=x86 `
+            /p:LanguageStandard=stdcpp17 `
+            /p:Charset=Unicode `
+            /p:CharacterSet=Unicode `
+            /p:AdditionalOptions="/utf-8 /source-charset:utf-8 /execution-charset:utf-8"
+
+      - name: 整理编译插件
+        run: |
+          mkdir output
+          if (Test-Path "Client\Fd\x86\Home\*.dll") {
+            xcopy "Client\Fd\x86\Home\*.dll" "output\" /y /s /q
+          }
+          if (Test-Path "Client\Fd\*.dll") {
+            xcopy "Client\Fd\*.dll" "output\" /y /s /q
+          }
+
+      - name: 上传到GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: "${{ steps.version.outputs.tag }}"
+          body: "客户端插件\n Fd.dll"
+          files: output/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
