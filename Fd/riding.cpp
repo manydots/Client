@@ -4,7 +4,7 @@
 #include "frida-gum.h"
 #include "70.h"
 
-//#define RIDING_EN
+#define RIDING_EN
 #ifdef RIDING_EN
 
 thisCall2 CNRDUdpModule__getModuleStage_76F3A0 = (thisCall2)0x76F3A0;

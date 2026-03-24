@@ -7,8 +7,8 @@
 #include <unordered_set>
 #include <unordered_map>
 
-#define GameIP							L"192.168.1.3"
-//#define GameIP							L"192.168.66.200"
+#define GameIP							L"192.168.200.131"
+//#define GameIP						L"192.168.66.200"
 
 #define MAX_LV	70
 #define forceinline static __forceinline
