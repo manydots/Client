@@ -1,5 +1,7 @@
 # S2客户端插件
 
+Actions Workflow Visual Studio 2022环境中对中文函数处理相对严格，导致编译不通过；暂时未找到好的解决办法，临时处理重命名中文函数。
+
 ### 插件使用
 
 ```shell
@@ -27,7 +29,7 @@ LD_PRELOAD="./libfd.so" ./df_game_r "${SERVER_NAME}11" start &
 
 ```
 
-### 其它资源
+### 其他资源
 
 - [Cloudflare](https://developers.cloudflare.com/warp-client/get-started/windows/)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/downloads/)
