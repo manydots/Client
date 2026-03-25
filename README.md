@@ -6,7 +6,6 @@ Actions Workflow Visual Studio 2022环境中对中文函数处理相对严格，
 
 ```shell
 # 客户端插件
-# (客户端插件关闭绑定IP fixIp())
 # 客户端加载Fd.dll
 
 # 服务端插件
@@ -28,8 +27,3 @@ LD_PRELOAD="./libfd_monitor.so" ./df_monitor_r mnt_${SERVER_NAME} start &
 LD_PRELOAD="./libfd.so" ./df_game_r "${SERVER_NAME}11" start &
 
 ```
-
-### 其他资源
-
-- [Cloudflare](https://developers.cloudflare.com/warp-client/get-started/windows/)
-- [Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/downloads/)
