@@ -791,7 +791,7 @@ forceinline void setCreateCharac(void) {
 
 
 #else
-void Naked 创建角色头像位置(void) {
+void Naked HookCreateCharPos(void) {
 	//011063A2
 	__asm {
 		mov dword ptr[ebp - 0x64], 0
@@ -804,7 +804,7 @@ void Naked 创建角色头像位置(void) {
 	}
 }
 
-void Naked 创建角色头像位置2(void) {
+void Naked HookCreateCharPos2(void) {
 	//010FE3FF
 	__asm {
 		mov dword ptr[ebp - 0x08], 0
@@ -818,8 +818,8 @@ void Naked 创建角色头像位置2(void) {
 }
 forceinline void setCreateCharac(void) {
 	*(DWORD*)0x011063EE = 48;
-	writeJmpCode((LPVOID*)0x011063A2, (LPVOID)创建角色头像位置);
-	writeJmpCode((LPVOID*)0x010FE3FF, (LPVOID)创建角色头像位置2);
+	writeJmpCode((LPVOID*)0x011063A2, (LPVOID)HookCreateCharPos);
+	writeJmpCode((LPVOID*)0x010FE3FF, (LPVOID)HookCreateCharPos2);
 
 	*(DWORD*)0x010FD9B7 = 450;//TitleX
 	*(BYTE*)0x010FD9B5 = 20;//TitleY
