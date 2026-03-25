@@ -47,7 +47,16 @@ jobs:
             /p:LanguageStandard=stdcpp17 `
             /p:Charset=Unicode `
             /p:CharacterSet=Unicode `
-            /p:AdditionalOptions="/utf-8 /source-charset:utf-8 /execution-charset:utf-8 /Zc:char8_t-"
+            /p:AdditionalOptions="/utf-8 /source-charset:utf-8 /execution-charset:utf-8 /Zc:char8_t-" `
+            /p:DebugType=None `                # 关闭调试信息
+            /p:DebugSymbols=false `            # 禁用调试符号
+            /p:IncrementalBuild=false `        # 关闭增量编译
+            /p:RuntimeChecks=0 `               # 关闭运行时检查
+            /p:Optimize=2 `                    # 开启优化
+            /p:Deterministic=true `            # 确定性编译
+            /p:PathMap=$(pwd)=C:\Client `      # 路径映射，消除绝对路径差异
+            /p:RemoveVersionInfo=false `       # 保留版本信息
+            /p:DeterministicAL=true
         shell: pwsh
 
       - name: 整理编译插件
